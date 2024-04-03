@@ -10,8 +10,14 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         VStack {
-            Text("PUT THE BULLSEYE AS CLOSE AS YOU CAN TO")
+            Text("🎯🎯🎯\nPUT THE BULLSEYE AS CLOSE AS YOU CAN TO")
+                .bold()
+                .multilineTextAlignment(.center)
+                .lineSpacing(4)
+                .font(.footnote)
+                .kerning(2)
             Text("89")
+                .bold()
             HStack {
                 Text("1")
                 Slider(value: .constant(50), in: 1.0...100.0)
