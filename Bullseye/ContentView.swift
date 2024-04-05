@@ -17,11 +17,15 @@ struct ContentView: View {
                 .font(.footnote)
                 .kerning(2)
             Text("89")
-                .bold()
+                .font(.largeTitle)
+                .fontWeight(.black)
+                .kerning(-1)
             HStack {
                 Text("1")
+                    .bold()
                 Slider(value: .constant(50), in: 1.0...100.0)
                 Text("100")
+                    .bold()
             }
             Button("Hit me") {
                 
@@ -32,5 +36,4 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
-        .previewInterfaceOrientation(.landscapeRight)
 }
