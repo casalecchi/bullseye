@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var isAlertVisible: Bool = false
-    @State private var value: Double = 50.0
+    @State private var isAlertVisible = false
+    @State private var value = 50.0
     @State private var game = Game()
     
     var body: some View {
@@ -43,8 +43,8 @@ struct ContentView: View {
                     }
                 },
                 message: {
-                    var roundedValue = Int(value.rounded())
-                    Text("Your target: \(roundedValue).\nYou scored \(game.points(guessValue: roundedValue)) points")
+                    let roundedValue = Int(value.rounded())
+                    Text("Your target: \(roundedValue).\nYou scored \(game.points(for: roundedValue)) points")
                 })
         }
     }
