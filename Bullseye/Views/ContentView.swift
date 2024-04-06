@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @State private var isAlertVisible: Bool = false
     @State private var value: Double = 50.0
+    @State private var game = Game()
     
     var body: some View {
         VStack {
@@ -19,7 +20,7 @@ struct ContentView: View {
                 .lineSpacing(4)
                 .font(.footnote)
                 .kerning(2)
-            Text("89")
+            Text(String(game.target))
                 .font(.largeTitle)
                 .fontWeight(.black)
                 .kerning(-1)
@@ -42,7 +43,8 @@ struct ContentView: View {
                     }
                 },
                 message: {
-                    Text("Your target: \(value.rounded())")
+                    var roundedValue = Int(value.rounded())
+                    Text("Your target: \(roundedValue).\nYou scored \(game.points(guessValue: roundedValue)) points")
                 })
         }
     }
