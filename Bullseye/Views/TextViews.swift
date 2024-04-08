@@ -43,9 +43,22 @@ struct SliderLabelText: View {
     }
 }
 
+struct LabelText: View {
+    var text: String
+    
+    var body: some View {
+        Text(text.uppercased())
+            .bold()
+            .font(.caption)
+            .foregroundStyle(Color("TextColor"))
+            .kerning(1.5)
+    }
+}
+
 #Preview {
     VStack {
         InstructionText(text: "Teste")
         BigNumberText(text: "999")
+        LabelText(text: "Score")
     }
 }
