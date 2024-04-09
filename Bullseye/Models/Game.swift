@@ -13,6 +13,29 @@ struct Game {
     var round = 1
     
     func points(for guessValue: Int) -> Int {
-        100 - abs(guessValue - target)
+        let difference = abs(guessValue - target)
+        let bonus: Int
+        
+        if difference == 0 {
+            bonus = 100
+        } else if difference <= 2 {
+            bonus = 50
+        } else {
+            bonus = 0
+        }
+        
+        return 100 - difference + bonus
+    }
+    
+    mutating func restart() {
+        score = 0
+        round = 1
+        target = Int.random(in: 1...100)
+    }
+    
+    mutating func startNewRound(points: Int) {
+        score += points
+        round += 1
+        target = Int.random(in: 1...100)
     }
 }
