@@ -16,11 +16,11 @@ struct ContentView: View {
         ZStack {
             BackgroundView(game: $game)
             VStack {
-                Image(systemName: "")
                 InstructionsView(game: $game)
-                SliderView(value: $value)
+                    .padding(.bottom, 100)
                 HitMeButton(isAlertVisible: $isAlertVisible, game: $game, value: $value)
             }
+            SliderView(value: $value)
         }
     }
 }
