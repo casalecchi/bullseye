@@ -81,7 +81,42 @@ struct ButtonText: View {
             )
             .clipShape(RoundedRectangle(cornerRadius: 12))
             .foregroundStyle(.white)
-        
+    }
+}
+
+struct ScoreText: View {
+    var text: Int
+    
+    var body: some View {
+        Text(String(text))
+            .font(.title2)
+            .bold()
+            .foregroundStyle(Color("TextColor"))
+            .kerning(-0.2)
+    }
+}
+
+struct DateText: View {
+    var date: Date
+    
+    var body: some View {
+        Text(date, style: .time)
+            .font(.title2)
+            .bold()
+            .foregroundStyle(Color("TextColor"))
+            .kerning(-0.2)
+    }
+}
+
+struct BigBoldText: View {
+    let text: String
+    
+    var body: some View {
+        Text(text.uppercased())
+            .fontWeight(.black)
+            .foregroundStyle(Color("TextColor"))
+            .font(.title)
+            .kerning(2)
     }
 }
 
@@ -93,6 +128,9 @@ struct ButtonText: View {
         LabelText(text: "Score")
         BodyText(text: "You scored 200 Points\n🥳🥳🥳")
         ButtonText(text: "Start New Round")
+        ScoreText(text: 100)
+        DateText(date: .now)
+        BigBoldText(text: "Leaderboard")
     }
     .padding()
 }
